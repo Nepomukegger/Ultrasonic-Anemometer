@@ -1,7 +1,7 @@
 # Ultrasonic Anemometer
 
-It is planned to create an ultrasonic anemometer, wind speed and direction measuring device with 4 ultrasonic sensors and to implement its programming. The required mathematical formulas can be found on the homepage [Link].
+The project aims to create an ultrasonic anemometer, a device for measuring wind speed and direction using four ultrasonic sensors, along with implementing its programming. The documentation at [DL1GLH](https://www.dl1glh.de/ultraschall-anemometer.html) was very helpful in providing an overview and detailed information on how ultrasonic anemometers work.
 
-The idea is to determine the wind based on the latency. In other words, the time it takes for the sound to travel from one side of the structure to the other is measured. To get a more accurate measurement, the measurement is carried out in 2 directions perpendicular to each other, furthermore the measurement is always carried out twice in opposite directions to be able to determine a more accurate vector that represents the speed.
+The concept is to measure wind speed based on the latency of sound waves. Specifically, the time it takes for sound to travel from one side of the structure to the other is recorded. To achieve more accurate measurements, the device performs measurements in two perpendicular directions. Furthermore, measurements are taken in both directions for each axis, enabling a more accurate calculation of the wind speed vector by compensating for potential errors and variations..
 
-The whole thing is still to be written down in a specification sheet, further notes will follow, which should help to realize this project.
+A specification sheet is planned to be written, and further notes will follow to support the realization of this project.
