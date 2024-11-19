@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "config.h"
 #include "NMEA2000Handler.h"
 #include "WirelessHandler.h"
 #include "SensorManager.h"
