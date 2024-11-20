@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "config.h"
 #include "NMEA2000Handler.h"
-// #include "WirelessHandler.h" // Noch nicht implementiert
+#include "WirelessHandler.h" // Noch nicht implementiert
 // #include "SensorManager.h"  // Noch nicht implementiert
 
 void setup() {
@@ -9,7 +9,7 @@ void setup() {
 
     // Initialisierungen
     initNMEA2000();
-    // initWireless(); // Noch nicht implementiert
+    initWireless(); // Noch nicht implementiert
     // initSensors();  // Noch nicht implementiert
 }
 
@@ -20,6 +20,7 @@ void loop() {
     // Provisorische Werte für SensorData
     data.temperature = 20.0; 
     data.windSpeed = 10.0;
+    data.humidity = 53.0;
 
     sendNMEA2000Data(data);
 

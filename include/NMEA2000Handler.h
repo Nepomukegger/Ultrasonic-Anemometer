@@ -9,6 +9,7 @@ struct SensorData {
     double windSpeed;
     double windAngle;
     double temperature;
+    double humidity;
 };
 
 void initNMEA2000();
