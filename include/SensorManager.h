@@ -3,19 +3,17 @@
 
 #include "config.h"
 #include "SensorHandler.h"
+#include "Sensor.h"
+#include <vector>
 
-struct SensorData {
-    int64_t measureTime();
-};
-
-class SensorManager {
+class SensorManager : public SensorHandler {
 public:
     SensorManager();
-    void initSensors();
-    void updateSensors(SensorData& data);
-
+    void addSensor(int pin, int id, uint8_t mode);
+    Sensor getSensorById(int id);
+    Sensor getSensorByPin(int pin);
 private:
-    SensorHandler sensorHandler;
+    std::vector<Sensor> sensorManager;
 };
 
 #endif

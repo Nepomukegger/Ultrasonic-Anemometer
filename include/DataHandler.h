@@ -4,7 +4,7 @@
 #include "SensorManager.h"  // Enthält die SensorData-Struktur
 
 struct PreparedData {
-    double windSpeed;
+    double measureTime;
     double windAngle;
     double temperature;
     double humidity;
