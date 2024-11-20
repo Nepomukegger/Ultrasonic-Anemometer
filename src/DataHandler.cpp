@@ -18,7 +18,7 @@ void PreparedData::setHumidity(double newHumidity) {
 
 DataHandler::DataHandler(double runtime) : runtime(runtime) {
     // TODO: SD-Karten-Setup
-    if (!SD.begin(SD_CS_PIN)) {
+    if (!SD_MMC.begin()) {
         Serial.println("SD-Karte konnte nicht initialisiert werden!");
         while (true) {
             // Endlosschleife, wenn keine SD-Karte gefunden wird (nur für Debugging).
@@ -74,7 +74,7 @@ PreparedData DataHandler::processData(double &runtime) {
 
 bool DataHandler::storeData(const PreparedData& data) {
     //TODO: Daten speichern (auf SD-Karte, in einem Array, etc.)
-    File dataFile = SD.open("datalog.txt", FILE_WRITE);
+    File dataFile = SD_MMC.open("datalog.txt", FILE_WRITE);
 
     if (dataFile) {
         dataFile.print("Windgeschwindigkeit: ");

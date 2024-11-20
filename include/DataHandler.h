@@ -2,7 +2,7 @@
 #define DATAHANDLER_H
 
 #include <cmath>
-#include <SD.h>
+#include <SD_MMC.h>
 #include <SPI.h>
 #include "SensorManager.h"  // Enthält die SensorData-Struktur
 
