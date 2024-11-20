@@ -17,7 +17,7 @@ void PreparedData::setHumidity(double newHumidity) {
 }
 
 DataHandler::DataHandler(double runtime) : runtime(runtime) {
-    // SD-Karten-Setup
+    // TODO: SD-Karten-Setup
     if (!SD.begin(SD_CS_PIN)) {
         Serial.println("SD-Karte konnte nicht initialisiert werden!");
         while (true) {
