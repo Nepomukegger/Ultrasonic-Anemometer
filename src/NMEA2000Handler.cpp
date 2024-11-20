@@ -6,7 +6,7 @@ void initNMEA2000() {
     NMEA2000.Open();
 }
 
-void sendNMEA2000Data(const std::vector<double>& distances, const SensorData &data) {
+void sendNMEA2000Data(const std::vector<double>& distances, const SensorData& data) {
     tN2kMsg N2kMsg;
     for (size_t i = 0; i < distances.size(); i++) {
         // PGN 130306: Winddaten senden

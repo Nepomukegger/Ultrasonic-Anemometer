@@ -7,3 +7,19 @@ void initWireless() {
     Serial.print(" IP address: ");
     Serial.println(IP);
 }
+
+void sendWirelessData(const std::vector<double>& distances, const SensorData& data) {
+    // Beispiel: Sende die Daten per HTTP oder MQTT
+    // Formatierung der Daten in ein geeignete Format (z.B. JSON)
+    Serial.print("Sending data: ");
+    Serial.print("WindSpeed: ");
+    for (size_t i = 0; i < distances.size(); i++) {
+        Serial.print(distances[i]);
+    }
+    Serial.print(" WindAngle: ");
+    Serial.print(data.windAngle);
+    Serial.print(" Temp: ");
+    Serial.print(data.temperature);
+    Serial.print(" Humidity: ");
+    Serial.println(data.humidity);
+}
