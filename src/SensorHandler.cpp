@@ -14,28 +14,10 @@ void SensorHandler::init() {
 
 void SensorHandler::readSensorData(SensorData& data) {
     // Sensordaten abfragen
-    data.windSpeed = readWindSpeed();
-    data.windAngle = readWindAngle();
-    data.temperature = readTemperature();
-    data.humidity = readHumidity();
+    data.measureTime = readMeasureTime();
 }
 
-double SensorHandler::readWindSpeed() {
+int64_t SensorHandler::readMeasureTime() {
     // Logik zur Messung der Windgeschwindigkeit
-    return 10.0; // Beispielwert
-}
-
-double SensorHandler::readWindAngle() {
-    // Logik zur Messung des Windwinkels
-    return 30.0; // Beispielwert
-}
-
-double SensorHandler::readTemperature() {
-    // Logik zur Messung der Temperatur
-    return 20.0; // Beispielwert
-}
-
-double SensorHandler::readHumidity() {
-    // Logik zur Messung der Luftfeuchtigkeit
-    return 55.0; // Beispielwert
+    return 10; // Beispielwert
 }

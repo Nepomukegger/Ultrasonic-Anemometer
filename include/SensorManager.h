@@ -5,10 +5,7 @@
 #include "SensorHandler.h"
 
 struct SensorData {
-    double windSpeed;
-    double windAngle;
-    double temperature;
-    double humidity;
+    int64_t measureTime();
 };
 
 class SensorManager {

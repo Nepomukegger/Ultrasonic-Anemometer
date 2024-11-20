@@ -13,10 +13,7 @@ public:
 
 private:
     // Hilfsfunktionen für die Sensorabfragen
-    double readWindSpeed();
-    double readWindAngle();
-    double readTemperature();
-    double readHumidity();
+    int64_t readMeasureTime();
 };
 
 #endif

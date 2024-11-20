@@ -3,11 +3,18 @@
 
 #include "SensorManager.h"  // Enthält die SensorData-Struktur
 
+struct PreparedData {
+    double windSpeed;
+    double windAngle;
+    double temperature;
+    double humidity;
+};
+
 class DataHandler {
 public:
     DataHandler();
-    void processData(const SensorData& data);
-    void storeData(const SensorData& data);
+    PreparedData processData(const SensorData& data);
+    bool storeData(const PreparedData& data);
 
 private:
     // Speicherorte oder Pufferspeicherung
