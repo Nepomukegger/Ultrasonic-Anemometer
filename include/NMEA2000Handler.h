@@ -3,6 +3,8 @@
 
 #include <NMEA2000_CAN.h>
 #include <N2kMessages.h>
+#include "SensorHandler.h"
+#include "SensorManager.h"
 
 // Sensordatenstruktur
 struct SensorData {
@@ -13,6 +15,6 @@ struct SensorData {
 };
 
 void initNMEA2000();
-void sendNMEA2000Data(const SensorData& data);
+void sendNMEA2000Data(const std::vector<double>& distances);
 
 #endif

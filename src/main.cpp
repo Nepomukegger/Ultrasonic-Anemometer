@@ -1,29 +1,28 @@
 #include <Arduino.h>
-#include "config.h"
+#include "SensorManager.h"
+#include "SensorHandler.h"
 #include "NMEA2000Handler.h"
-#include "WirelessHandler.h" // Noch nicht implementiert
-// #include "SensorManager.h"  // Noch nicht implementiert
+
+SensorManager sensorManager;
+SensorHandler sensorHandler;
 
 void setup() {
-    Serial.begin(115200);
+    Serial.begin(BAUD_RATE);
 
-    // Initialisierungen
+    // Sensoren hinzufügen
+    sensorManager.addSensor(new UltrasonicSensor(SENSOR_1_TRIGGER_PIN, SENSOR_1_ECHO_PIN));
+    sensorManager.addSensor(new UltrasonicSensor(SENSOR_2_TRIGGER_PIN, SENSOR_2_ECHO_PIN));
+    sensorManager.addSensor(new UltrasonicSensor(SENSOR_3_TRIGGER_PIN, SENSOR_3_ECHO_PIN));
+    sensorManager.addSensor(new UltrasonicSensor(SENSOR_4_TRIGGER_PIN, SENSOR_4_ECHO_PIN));
+
+    sensorManager.setupSensors();
     initNMEA2000();
-    initWireless(); // Noch nicht implementiert
-    // initSensors();  // Noch nicht implementiert
 }
 
 void loop() {
-    // SensorData data = readSensorData(); // Noch nicht implementiert
-    SensorData data; // Platzhalter
+    auto distances = sensorManager.collectDistances();
+    sensorHandler.processDistances(distances);
+    sendNMEA2000Data(distances);
 
-    // Provisorische Werte für SensorData
-    data.temperature = 20.0; 
-    data.windSpeed = 10.0;
-    data.humidity = 53.0;
-
-    sendNMEA2000Data(data);
-
-    // sendWirelessData(data); // Noch nicht implementiert
-    delay(100); // Intervall für Echtzeit-Messungen
+    delay(1000);
 }

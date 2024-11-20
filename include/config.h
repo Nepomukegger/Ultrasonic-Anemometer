@@ -1,6 +1,9 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+// Globale Konfigurationen
+#define BAUD_RATE 115200
+
 // WiFi credentials
 #define WIFI_SSID "Ultrasonic_Anemometer_AP"
 #define WIFI_PASSWORD "!Test2345"
@@ -17,18 +20,17 @@
 // LED pin
 #define LED_PIN 2
 
-//Sensor pins
-//Sensor PIN A for the red wire and PIN B for the black wire
-#define ULTRASONIC_SENSOR_1_PIN_A 16
-#define ULTRASONIC_SENSOR_1_PIN_B 17
+// Pins für die Sensoren
+#define SENSOR_1_TRIGGER_PIN 2
+#define SENSOR_1_ECHO_PIN 4
 
-#define ULTRASONIC_SENSOR_2_PIN_A 18
-#define ULTRASONIC_SENSOR_2_PIN_B 19
+#define SENSOR_2_TRIGGER_PIN 5
+#define SENSOR_2_ECHO_PIN 18
 
-#define ULTRASONIC_SENSOR_3_PIN_A 21
-#define ULTRASONIC_SENSOR_3_PIN_B 22
+#define SENSOR_3_TRIGGER_PIN 19
+#define SENSOR_3_ECHO_PIN 21
 
-#define ULTRASONIC_SENSOR_4_PIN_A 25
-#define ULTRASONIC_SENSOR_4_PIN_B 26
+#define SENSOR_4_TRIGGER_PIN 22
+#define SENSOR_4_ECHO_PIN 23
 
-#endif // CONFIG_H
+#endif

@@ -1,13 +1,19 @@
 #include "SensorManager.h"
 
-UltrasonicSensor::UltrasonicSensor(){
-    //Set the used Pins to output and input;
-    pinMode(ULTRASONIC_SENSOR_1_PIN_A, OUTPUT);
-    pinMode(ULTRASONIC_SENSOR_1_PIN_B, OUTPUT);
-    pinMode(ULTRASONIC_SENSOR_2_PIN_A, OUTPUT);
-    pinMode(ULTRASONIC_SENSOR_2_PIN_B, OUTPUT);
-    pinMode(ULTRASONIC_SENSOR_3_PIN_A, OUTPUT);
-    pinMode(ULTRASONIC_SENSOR_3_PIN_B, OUTPUT);
-    pinMode(ULTRASONIC_SENSOR_4_PIN_A, OUTPUT);
-    pinMode(ULTRASONIC_SENSOR_4_PIN_B, OUTPUT);
+void SensorManager::addSensor(UltrasonicSensor* sensor) {
+    sensors.push_back(sensor);
+}
+
+void SensorManager::setupSensors() {
+    for (auto& sensor : sensors) {
+        sensor->setup();
+    }
+}
+
+std::vector<double> SensorManager::collectDistances() {
+    std::vector<double> distances;
+    for (auto& sensor : sensors) {
+        distances.push_back(sensor->measureDistance());
+    }
+    return distances;
 }
