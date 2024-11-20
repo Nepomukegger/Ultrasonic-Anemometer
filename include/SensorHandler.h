@@ -4,7 +4,9 @@
 #include "Sensor.h"
 
 class SensorHandler : public Sensor {
-
+public:
+    void measureRuntime();
+    void measureRuntimeIsr();
 };
 
 #endif
