@@ -1,11 +1,24 @@
-#pragma once
+#ifndef SENSORMANAGER_H
+#define SENSORMANAGER_H
+
 #include "config.h"
-#include <esp_timer.h>
-#include <Arduino.h>
+#include "SensorHandler.h"
 
-
-struct UltrasonicSensor{
-    UltrasonicSensor();
-    int64_t measureTime();
-    bool outputPWM();
+struct SensorData {
+    double windSpeed;
+    double windAngle;
+    double temperature;
+    double humidity;
 };
+
+class SensorManager {
+public:
+    SensorManager();
+    void initSensors();
+    void updateSensors(SensorData& data);
+
+private:
+    SensorHandler sensorHandler;
+};
+
+#endif
