@@ -8,7 +8,7 @@ void initWireless() {
     Serial.println(IP);
 }
 
-void sendWirelessData(const SensorData& data) {
+void sendWirelessData(const PreparedData& data) {
     // Beispiel: Sende die Daten per HTTP oder MQTT
     // Formatierung der Daten in ein geeignete Format (z.B. JSON)
     Serial.print("Sending data: ");

@@ -2,9 +2,9 @@
 #define WIRELESSHANDLER_H
 
 #include <WiFi.h>
-#include "SensorManager.h"
+#include "DataHandler.h"
 
 void initWireless();
-void sendWirelessData(const SensorData& data);
+void sendWirelessData(const PreparedData& data);
 
 #endif

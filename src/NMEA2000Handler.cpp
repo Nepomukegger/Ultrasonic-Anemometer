@@ -6,7 +6,7 @@ void initNMEA2000() {
     NMEA2000.Open();
 }
 
-void sendNMEA2000Data(const SensorData& data) {
+void sendNMEA2000Data(const PreparedData& data) {
     tN2kMsg N2kMsg;
 
     // PGN 130306: Winddaten senden

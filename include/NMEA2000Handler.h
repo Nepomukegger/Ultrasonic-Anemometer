@@ -3,9 +3,9 @@
 
 #include <NMEA2000_CAN.h>
 #include <N2kMessages.h>
-#include "SensorManager.h"
+#include "DataHandler.h"
 
 void initNMEA2000();
-void sendNMEA2000Data(const SensorData& data);
+void sendNMEA2000Data(const PreparedData& data);
 
 #endif
