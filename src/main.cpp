@@ -1,3 +1,25 @@
+/**
+ * Ultrasonic Anemometer Project
+ * 
+ * Authors: Christopher Höck, Nepomuk Egger
+ * Version: 1.0.0
+ * Last updated: 20. November 2024
+ * 
+ * Project Summary:
+ * This project aims to develop an ultrasonic anemometer using an ESP32 microcontroller. 
+ * Key functionalities include:
+ * - Measuring wind speed and direction using ultrasonic sensors.
+ * - Monitoring temperature and humidity.
+ * - Storing measured data locally on an SD card.
+ * - Transmitting data wirelessly (Wi-Fi and Bluetooth).
+ * - Supporting NMEA 2000 format for weather and geolocation data transmission.
+ * 
+ * Project Features:
+ * - Modular code architecture for maintainability and scalability.
+ * - Integration of NMEA 2000 standard for seamless communication with marine systems.
+ * - Flexible configuration for sensor management and data processing.
+ **/
+
 #include <Arduino.h>
 #include "config.h"
 #include "NMEA2000Handler.h"
