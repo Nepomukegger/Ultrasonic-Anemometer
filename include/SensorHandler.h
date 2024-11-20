@@ -1,7 +1,7 @@
 #ifndef SENSOR_HANDLER_H
 #define SENSOR_HANDLER_H
 
-#include <vector.h>
+#include <vector>
 
 class SensorHandler {
 public:

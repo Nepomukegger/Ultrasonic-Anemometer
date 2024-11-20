@@ -5,6 +5,7 @@
 #include <N2kMessages.h>
 #include "SensorHandler.h"
 #include "SensorManager.h"
+#include "config.h"
 
 // Sensordatenstruktur
 struct SensorData {
