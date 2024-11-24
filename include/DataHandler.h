@@ -5,21 +5,18 @@
 #include <SD_MMC.h>
 #include <SPI.h>
 #include "SensorManager.h"  // Enthält die SensorData-Struktur
+#inlcude "MathVec.h"
 
 class PreparedData {
 public:
-    double windSpeed;
-    double windAngle;
-    double temperature;
-    double humidity;
-
-    void setWindSpeed(double windSpeed);
-    void setWindAngle(double windAngle);
-    void setTemperature(double temperature);
-    void setHumidity(double humidity);
+void prepareData();
 
 private:
-
+    MathVec windX;
+    MathVec windY;
+    MathVec trueWind;
+    double temperature;
+    double humidity;
 };
 
 class DataHandler {
@@ -29,6 +26,7 @@ public:
     bool storeData(const PreparedData& data);
 
 private:
+
     // Speicherorte oder Pufferspeicherung
     double runtime; 
 };
