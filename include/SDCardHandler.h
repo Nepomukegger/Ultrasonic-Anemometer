@@ -1,5 +1,5 @@
-#ifndef SD_CARD_HANDLER_H
-#define SD_CARD_HANDLER_H
+#ifndef SDCARDHANDLER_H
+#define SDCARDHANDLER_H
 
 #include <SD_MMC.h>
 #include <SPI.h>
