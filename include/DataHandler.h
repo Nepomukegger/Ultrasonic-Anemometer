@@ -13,9 +13,6 @@
 #include "MathVec.h"
 
 class PreparedData : public SensorManager{
-public:
-    void processData();
-    bool store();
 private:
     // TODO: Wind Richtung berechnen
     // TODO: Zeitstempel hinzufügen
@@ -24,6 +21,11 @@ private:
     MathVec trueWind; // TODO: Kann nicht zugegriffen werden in NMEA2000Handler.cpp & WirelessHandler.cpp, da privat
     double temperature;
     double humidity;
+
+public:
+
+    void processData();
+    bool store();
 };
 
 

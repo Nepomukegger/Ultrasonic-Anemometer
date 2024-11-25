@@ -12,16 +12,6 @@
 #include <string>
 
 class Sensor {
-public:
-    Sensor(String name, int pinRead, int pinWrite, int id, uint8_t modeRead, uint8_t modeWrite);
-    String getName();
-    int getPinRead();
-    int getPinWrite();
-    int getId();
-    uint8_t getModeRead();
-    uint8_t getModeWrite();
-    void setRuntime(int64_t measuredTime);
-    double getRuntime();
 private:
     String name;
     int pinRead;
@@ -30,8 +20,19 @@ private:
     uint8_t modeRead;
     uint8_t modeWrite;
     int64_t runtime;
+
+public:
+    Sensor(String name, int pinRead, int pinWrite, int id, uint8_t modeRead, uint8_t modeWrite);
+
+    String getName();
+    int getPinRead();
+    int getPinWrite();
+    int getId();
+    uint8_t getModeRead();
+    uint8_t getModeWrite();
+    void setRuntime(int64_t measuredTime);
+    double getRuntime();
+
 };
-
-
 
 #endif //SENSOR_H

@@ -28,6 +28,7 @@
 #include "DataHandler.h"
 
 SensorManager sensorManager;
+SensorHandler sensorHandler;
 PreparedData data;
 
 void initializeSensors() {
@@ -35,9 +36,11 @@ void initializeSensors() {
     sensorManager.addSensor(ULTRASONIC_SENSOR_2_READ_ENABLE, ULTRASONIC_SENSOR_2_WRITE_ENABLE, 2, OUTPUT, OUTPUT);
     sensorManager.addSensor(ULTRASONIC_SENSOR_3_READ_ENABLE, ULTRASONIC_SENSOR_3_WRITE_ENABLE, 3, OUTPUT, OUTPUT);
     sensorManager.addSensor(ULTRASONIC_SENSOR_4_READ_ENABLE, ULTRASONIC_SENSOR_4_WRITE_ENABLE, 4, OUTPUT, OUTPUT);
-    sensorManager.enabelClock(ULTRASONIC_SENSOR_CLK, CLOCK_FREQUENCY, OUTPUT); //TODO: 305 kHz, needs to be adjusted
-    sensorManager.readInput(ULTRASONIC_SENSOR_READ, INPUT);
+}
 
+void initializeClock() {
+    sensorHandler.enableClock(ULTRASONIC_SENSOR_CLK, CLOCK_FREQUENCY, OUTPUT); //TODO: 305 kHz, needs to be adjusted
+    sensorHandler.enableRead(ULTRASONIC_SENSOR_READ, INPUT);
 }
 
 void setup() {
@@ -47,14 +50,15 @@ void setup() {
     initNMEA2000();
     initWireless();
     initializeSensors();
+    initializeClock();
 
     Serial.println("Setup abgeschlossen.");
 }
 
 void loop() {
-    static double runtime = 300; // Beispielwert, Laufzeit hier simuliert
 
     // Datenverarbeitung
+    sensorHandler.readInput(ULTRASONIC_SENSOR_READ);
     data.processData();
 
     // Daten senden

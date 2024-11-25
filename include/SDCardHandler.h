@@ -6,6 +6,8 @@
 #include "DataHandler.h"
 
 class SDCardHandler {
+private:
+
 public:
     SDCardHandler();
     bool storeData(const PreparedData& data);
