@@ -1,3 +1,8 @@
+// 
+// Description: This class prepares the sensor data and saves it.
+//
+
+
 #ifndef DATAHANDLER_H
 #define DATAHANDLER_H
 
@@ -5,7 +10,7 @@
 #include <SD_MMC.h>
 #include <SPI.h>
 #include "SensorManager.h"  // Enthält die SensorData-Struktur
-#inlcude "MathVec.h"
+#include "MathVec.h"
 
 class PreparedData {
 public:

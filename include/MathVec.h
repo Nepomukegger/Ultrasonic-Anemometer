@@ -1,17 +1,17 @@
-#ifndef ULTRASONIC_ANEMOMETER_MATHVEC_H
-#define ULTRASONIC_ANEMOMETER_MATHVEC_H
+#ifndef MATHVEC_H
+#define MATHVEC_H
 
 #include <cmath>
 
 class MathVec {
 public:
     void add(MathVec vec);
-    void getAngle();
-    void getMagnitude();
+    double getAngle();
+    double getMagnitude();
 private:
     double x;
     double y;
 };
 
 
-#endif //ULTRASONIC_ANEMOMETER_MATHVEC_H
+#endif //MATHVEC_H
