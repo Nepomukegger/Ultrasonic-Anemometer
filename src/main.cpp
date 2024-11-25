@@ -22,7 +22,7 @@ void setup() {
 void loop() {
     auto distances = sensorManager.collectDistances();
     sensorHandler.processDistances(distances);
-    sendNMEA2000Data(distances);
+    sendNMEA2000Data(distances, sensorHandler.getSensorData());
 
     delay(1000);
 }

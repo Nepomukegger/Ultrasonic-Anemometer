@@ -14,6 +14,7 @@ struct SensorData {
 class SensorHandler {
 public:
     void processDistances(const std::vector<double>& distances);
+    SensorData getSensorData() const;
 };
 
 #endif
