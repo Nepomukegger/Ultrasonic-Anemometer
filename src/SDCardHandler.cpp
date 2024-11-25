@@ -24,11 +24,11 @@ bool SDCardHandler::storeData(const PreparedData &data) {
         return false;
     }
 
-    file.print(data.timestamp);
+    file.print(data.timestamp);            //TODO: Implementierung von timestamp fehlt
+    file.print(",");
+    file.print(data.windDirection);        //TODO: Implementierung von windDirection fehlt
     file.print(",");
     file.print(data.trueWind.magnitude()); //Implementierung von MathVec fehlt
-    file.print(",");
-    file.print(data.windDirection);
     file.print(",");
     file.print(data.temperature);
     file.print(",");

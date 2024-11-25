@@ -10,6 +10,7 @@
 #include <SD_MMC.h>
 #include <SPI.h>
 #include "SensorManager.h"  // Enthält die SensorData-Struktur
+#include "SDCardHandler.h"
 #include "MathVec.h"
 
 class PreparedData : public SensorManager{
@@ -24,8 +25,8 @@ private:
 
 public:
 
-    void processData();
-    bool store();
+    PreparedData processData();
+    bool store(SDCardHandler cardInput, bool storeIt);
 };
 
 

@@ -29,13 +29,14 @@
 
 SensorManager sensorManager;
 SensorHandler sensorHandler;
+SDCardHandler cardHandler;
 PreparedData data;
 
 void initializeSensors() {
-    sensorManager.addSensor(ULTRASONIC_SENSOR_1_READ_ENABLE, ULTRASONIC_SENSOR_1_WRITE_ENABLE, 1, OUTPUT, OUTPUT);
-    sensorManager.addSensor(ULTRASONIC_SENSOR_2_READ_ENABLE, ULTRASONIC_SENSOR_2_WRITE_ENABLE, 2, OUTPUT, OUTPUT);
-    sensorManager.addSensor(ULTRASONIC_SENSOR_3_READ_ENABLE, ULTRASONIC_SENSOR_3_WRITE_ENABLE, 3, OUTPUT, OUTPUT);
-    sensorManager.addSensor(ULTRASONIC_SENSOR_4_READ_ENABLE, ULTRASONIC_SENSOR_4_WRITE_ENABLE, 4, OUTPUT, OUTPUT);
+    sensorManager.addSensor(ULTRASONIC_SENSOR_1_ECHO, ULTRASONIC_SENSOR_1_TRIGGER, 1, OUTPUT, OUTPUT);
+    sensorManager.addSensor(ULTRASONIC_SENSOR_2_ECHO, ULTRASONIC_SENSOR_2_TRIGGER, 2, OUTPUT, OUTPUT);
+    sensorManager.addSensor(ULTRASONIC_SENSOR_3_ECHO, ULTRASONIC_SENSOR_3_TRIGGER, 3, OUTPUT, OUTPUT);
+    sensorManager.addSensor(ULTRASONIC_SENSOR_4_ECHO, ULTRASONIC_SENSOR_4_TRIGGER, 4, OUTPUT, OUTPUT);
 }
 
 void initializeClock() {
@@ -58,8 +59,10 @@ void setup() {
 void loop() {
 
     // Datenverarbeitung
+    data.store(cardHandler, false);
     sensorHandler.readInput(ULTRASONIC_SENSOR_READ);
     data.processData();
+    data.store(cardHandler, true);
 
     // Daten senden
     sendWirelessData(data);

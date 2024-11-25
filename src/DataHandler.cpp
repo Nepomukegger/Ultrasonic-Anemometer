@@ -1,8 +1,8 @@
 #include "DataHandler.h"
 
-void PreparedData::processData() {
+PreparedData PreparedData::processData() {
     // Berechnung der Windgeschwindigkeit
-    double time_x = getSensorById(1).getRuntime() - getSensorById(3).getRuntime();     // TODO: Id der sensoren anpassen
+    double time_x = getSensorById(1).getRuntime() - getSensorById(3).getRuntime();
     double time_y = getSensorById(2).getRuntime() - getSensorById(4).getRuntime();
 
     if ((sin(angle_in_radians) + cos(angle_in_radians)) != 0 && time_forwards != 0 && time_backwards != 0) {
@@ -37,4 +37,17 @@ void PreparedData::processData() {
     // TODO: Füge weitere Berechnungen hinzu, z. B. für Luftfeuchtigkeit oder andere Parameter
 
     return data;
+}
+
+bool PreparedData::store(SDCardHandler cardInput, bool storeIt) {
+        // Speichere die Daten lokal auf der SD-Karte
+        if (!storeIt) {
+            Serial.println("Speichern der Daten deaktiviert.");
+            return false;
+        }
+        else {
+            Serial.println("Speichern der Daten aktiviert.\n Speichere Daten auf SD-Karte...");
+            cardInput.storeData(processData());
+            return true;
+        }
 }
