@@ -9,22 +9,20 @@
 #include <cmath>
 #include <SD_MMC.h>
 #include <SPI.h>
-#include "SensorManager.h"  // Enthält die SensorData-Struktur
+#include "SensorManager.h"
 #include "SDCardHandler.h"
 #include "MathVec.h"
 
 class DataHandler : public SensorManager{
 private:
-    // TODO: Wind Richtung berechnen
-    // TODO: Zeitstempel hinzufügen
     MathVec windX;
     MathVec windY;
-    MathVec trueWind; // TODO: Kann nicht zugegriffen werden in NMEA2000Handler.cpp & WirelessHandler.cpp, da privat
+    MathVec trueWind;
 
 public:
     double timestamp;
-    double windSpeed;
-    double windAngle;
+    double windVelocity;
+    double windDirection;
     double temperature;
     double humidity;
 

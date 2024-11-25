@@ -5,11 +5,11 @@ WirelessHandler::WirelessHandler() : filename("/measurments.json") {
     IPAddress IP = WiFi.softAPIP();
     Serial.print(AP_SSID);
     Serial.print(" IP address: ");
-    Serial.println(IP);
+    logError(String(IP));
 
     File csvFile = SD_MMC.open("/measurments.csv", FILE_READ);
     if (!csvFile) {
-        Serial.println("Fehler beim Öffnen der CSV-Datei!");
+        logError("Fehler beim Öffnen der CSV-Datei!");
         return;
     }
 
@@ -28,7 +28,7 @@ WirelessHandler::WirelessHandler() : filename("/measurments.json") {
 
     File jsonFile = SD_MMC.open(filename, FILE_WRITE);
     if (!jsonFile) {
-        Serial.println("Fehler beim Öffnen der JSON-Datei!");
+        logError("Fehler beim Öffnen der JSON-Datei!");
         return;
     }
     serializeJson(jsonDoc, jsonFile);

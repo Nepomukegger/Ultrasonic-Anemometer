@@ -3,6 +3,7 @@
 
 #include <SD_MMC.h>
 #include <SPI.h>
+#include "ErrorHandler.h"
 #include "DataHandler.h"
 
 class SDCardHandler {

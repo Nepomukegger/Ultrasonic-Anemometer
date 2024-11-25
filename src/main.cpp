@@ -51,10 +51,12 @@ void setup() {
     Serial.begin(115200);
 
     // Initialisierungen
+    logError(esp_timer_get_time() + ": Setup wird durchgeführt...");
+    
     initializeSensors();
     initializeClock();
 
-    Serial.println("Setup abgeschlossen.");
+    logError("Setup abgeschlossen.");
 }
 
 void loop() {

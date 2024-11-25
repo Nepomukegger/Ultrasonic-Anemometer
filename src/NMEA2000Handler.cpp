@@ -14,26 +14,26 @@ void NMEA2000Handler::sendNMEA2000Data(const DataHandler& data) {
     tN2kMsg N2kMsg;
 
     // PGN 130306: Winddaten senden
-    SetN2kWindSpeed(N2kMsg, 1, data.windSpeed, data.windAngle, N2kWind_True_North);      //TODO: Implementierung der Funktion
+    SetN2kWindSpeed(N2kMsg, 1, data.windVelocity, data.windDirection, N2kWind_True_North);      //TODO: Implementierung der Funktion
     if (NMEA2000.SendMsg(N2kMsg)) {
-        Serial.println("Wind data sent successfully!");
+        logError("Wind data sent successfully!");
     } else {
-        Serial.println("Failed to send wind data!");
+        logError("Failed to send wind data!");
     }
 
     // PGN 130312: Temperaturdaten senden
     SetN2kTemperature(N2kMsg, 1, 1, N2kts_OutsideTemperature, data.temperature);
     if (NMEA2000.SendMsg(N2kMsg)) {
-        Serial.println("Temperature data sent successfully!");
+        logError("Temperature data sent successfully!");
     } else {
-        Serial.println("Failed to send temperature data!");
+        logError("Failed to send temperature data!");
     }
 
     // PGN 130313: Feuchtigkeitsdaten senden
     SetN2kHumidity(N2kMsg, 1, 1, N2khs_OutsideHumidity, data.humidity);
     if (NMEA2000.SendMsg(N2kMsg)) {
-        Serial.println("Humidity data sent successfully!");
+        logError("Humidity data sent successfully!");
     } else {
-        Serial.println("Failed to send humidity data!");
+        logError("Failed to send humidity data!");
     }
 }

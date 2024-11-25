@@ -14,7 +14,7 @@ Sensor SensorManager::getSensorByName(String name) {
             }
         }
     } catch (const std::exception & e) {
-        Serial.println(e.what());
+        logError(e.what());
         return {"Error not found by name", -1, -1, -1, 0, 0};
     }
 }
@@ -29,7 +29,7 @@ Sensor SensorManager::getSensorById(int id) {
         }
         // return sensorManager.at(id);     // Maybe better?
     } catch (const std::exception & e) {
-        Serial.println(e.what());
+        logError(e.what());
         return {"Error not found by ID", -1, -1, -1, 0, 0};
     }
     return {"Error not found by ID", -1, -1, -1, 0, 0};
@@ -44,7 +44,7 @@ Sensor SensorManager::getSensorByPin(int pin) {
             }
         }
     } catch (const std::exception & e) {
-        Serial.println(e.what());
+        logError(e.what());
         return {"Error not found by pin", -1, -1, -1, 0, 0};
     }
 }

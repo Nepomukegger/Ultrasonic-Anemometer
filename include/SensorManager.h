@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "config.h"
+#include "ErrorHandler.h"
 #include "Sensor.h"
 #include "SensorHandler.h"
 
