@@ -38,25 +38,3 @@ void PreparedData::processData() {
 
     return data;
 }
-
-bool DataHandler::storeData(const PreparedData& data) {
-    //TODO: Daten speichern (auf SD-Karte, in einem Array, etc.)
-    File dataFile = SD_MMC.open("datalog.txt", FILE_WRITE);
-
-    if (dataFile) {
-        dataFile.print("Windgeschwindigkeit: ");
-        dataFile.print(data.windSpeed);
-        dataFile.print(" m/s, Windwinkel: ");
-        dataFile.print(data.windAngle);
-        dataFile.print("°, Temperatur: ");
-        dataFile.print(data.temperature);
-        dataFile.println(" °C");
-        dataFile.close();
-        Serial.println("Daten erfolgreich gespeichert!");
-        return true;
-    }
-    else {
-        Serial.println("Fehler beim Öffnen der Datei!");
-        return false;
-    }
-}

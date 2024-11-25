@@ -17,4 +17,23 @@ SDCardHandler::SDCardHandler() {
     }
 }
 
-bool SDCardHandler::storeData(const PreparedData &data) {}
+bool SDCardHandler::storeData(const PreparedData &data) {
+    File file = SD_MMC.open("/measuerment.csv", FILE_APPEND);
+    if (!file) {
+        Serial.println("Fehler beim Öffnen der Datei!");
+        return false;
+    }
+
+    file.print(data.timestamp);
+    file.print(",");
+    file.print(data.trueWind.magnitude()); //Implementierung von MathVec fehlt
+    file.print(",");
+    file.print(data.windDirection);
+    file.print(",");
+    file.print(data.temperature);
+    file.print(",");
+    file.print(data.humidity);
+    file.print(",");
+    file.print(data.pressure);
+    file.println();
+}

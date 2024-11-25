@@ -18,6 +18,7 @@ public:
     bool store();
 private:
     // TODO: Wind Richtung berechnen
+    // TODO: Zeitstempel hinzufügen
     MathVec windX;
     MathVec windY;
     MathVec trueWind; // TODO: Kann nicht zugegriffen werden in NMEA2000Handler.cpp & WirelessHandler.cpp, da privat
