@@ -5,6 +5,16 @@ void SensorManager::addSensor(int pinRead, int pinWrite, int id, uint8_t modeRea
     sensorManager.emplace_back("Sensor_" + std::to_string(id), pinRead, pinWrite, id, modeRead, modeWrite);
 }
 
+void SensorManager::enabelClock(int pin, int frequency, uint8_t mode)
+{
+    pinMode(pin, mode);
+}
+
+void SensorManager::readInput(int pin, uint8_t mode)
+{
+    pinMode(pin, mode);
+}
+
 Sensor SensorManager::getSensorByName(String name) {
     // Sensor anhand des Namens zurückgeben
     for (Sensor & sensor : sensorManager) {

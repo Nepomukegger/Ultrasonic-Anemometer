@@ -17,9 +17,10 @@ public:
     void processData();
     bool store();
 private:
+    // TODO: Wind Richtung berechnen
     MathVec windX;
     MathVec windY;
-    MathVec trueWind;
+    MathVec trueWind; // TODO: Kann nicht zugegriffen werden in NMEA2000Handler.cpp & WirelessHandler.cpp, da privat
     double temperature;
     double humidity;
 };

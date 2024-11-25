@@ -3,7 +3,7 @@
  * 
  * Authors: Christopher Höck, Nepomuk Egger
  * Version: 1.0.0
- * Last updated: 2021-09-30
+ * Last updated: 2024-11-25
  * 
  * Project Summary:
  * This project aims to develop an ultrasonic anemometer using an ESP32 microcontroller. 
@@ -28,16 +28,16 @@
 #include "DataHandler.h"
 
 SensorManager sensorManager;
-DataHandler dataHandler(0); // Initialisiere mit Laufzeit 0
+PreparedData data;
 
 void initializeSensors() {
-    //TODO: Sensoren richtig konfigurieren
-    sensorManager.addSensor(ULTRASONIC_SENSOR_1_WRITE_ENABLE, ULTRASONIC_SENSOR_1_READ_ENABLE, 1, OUTPUT, OUTPUT);
-    sensorManager.addSensor(ULTRASONIC_SENSOR_2_WRITE_ENABLE, ULTRASONIC_SENSOR_2_READ_ENABLE, 2, OUTPUT, OUTPUT);
-    sensorManager.addSensor(ULTRASONIC_SENSOR_3_WRITE_ENABLE, ULTRASONIC_SENSOR_3_READ_ENABLE, 3, OUTPUT, OUTPUT);
-    sensorManager.addSensor(ULTRASONIC_SENSOR_4_WRITE_ENABLE, ULTRASONIC_SENSOR_4_READ_ENABLE, 4, OUTPUT, OUTPUT);
-    sensorManager.addSensor(ULTRASONIC_SENSOR_CLK, 50, OUTPUT); //TODO: richtig konfigurieren
-    sensorManager.addSensor(ULTRASONIC_SENSOR_READ, 51, INPUT); //TODO: richtig konfigurieren
+    sensorManager.addSensor(ULTRASONIC_SENSOR_1_READ_ENABLE, ULTRASONIC_SENSOR_1_WRITE_ENABLE, 1, OUTPUT, OUTPUT);
+    sensorManager.addSensor(ULTRASONIC_SENSOR_2_READ_ENABLE, ULTRASONIC_SENSOR_2_WRITE_ENABLE, 2, OUTPUT, OUTPUT);
+    sensorManager.addSensor(ULTRASONIC_SENSOR_3_READ_ENABLE, ULTRASONIC_SENSOR_3_WRITE_ENABLE, 3, OUTPUT, OUTPUT);
+    sensorManager.addSensor(ULTRASONIC_SENSOR_4_READ_ENABLE, ULTRASONIC_SENSOR_4_WRITE_ENABLE, 4, OUTPUT, OUTPUT);
+    sensorManager.enabelClock(ULTRASONIC_SENSOR_CLK, CLOCK_FREQUENCY, OUTPUT); //TODO: 305 kHz, needs to be adjusted
+    sensorManager.readInput(ULTRASONIC_SENSOR_READ, INPUT);
+
 }
 
 void setup() {
@@ -55,7 +55,7 @@ void loop() {
     static double runtime = 300; // Beispielwert, Laufzeit hier simuliert
 
     // Datenverarbeitung
-    PreparedData data = dataHandler.processData(runtime);
+    data.processData();
 
     // Daten senden
     sendWirelessData(data);
