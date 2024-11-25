@@ -34,4 +34,9 @@
 #define ULTRASONIC_SENSOR_CLK 32
 #define ULTRASONIC_SENSOR_READ 33
 
+//Sensor
+#define SENSOR_MOUNT_ANGLE 45
+#define SENSOR_MOUNT_ANGLE_IN_RADIANS (SENSOR_MOUNT_ANGLE * M_PI / 180.0)
+#define SENSOR_DISTANCE 0.1  //Distance in meters between the sensors
+
 #endif // CONFIG_H

@@ -5,9 +5,13 @@
 
 class MathVec {
 public:
-    void add(MathVec vec);
+    MathVec(double x, double y);
+    MathVec();
+    void add(const MathVec &vec);
     double getAngle();
     double getMagnitude();
+    double getX();
+    double getY();
 private:
     double x;
     double y;

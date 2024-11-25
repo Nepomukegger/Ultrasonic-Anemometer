@@ -1,6 +1,11 @@
 #include "MathVec.h"
 
-void MathVec::add(MathVec vec) {
+MathVec::MathVec(double x, double y) : x(x), y(y) {}
+
+MathVec::MathVec() : x(0), y(0) {}
+
+
+void MathVec::add(const MathVec &vec) {
     this->x += vec.x;
     this->y += vec.y;
 }

@@ -12,10 +12,10 @@
 #include "SensorManager.h"  // Enthält die SensorData-Struktur
 #include "MathVec.h"
 
-class PreparedData {
+class PreparedData : public SensorManager{
 public:
-void prepareData();
-
+    void processData();
+    bool store();
 private:
     MathVec windX;
     MathVec windY;
@@ -24,16 +24,5 @@ private:
     double humidity;
 };
 
-class DataHandler {
-public:
-    DataHandler(double runtime);
-    PreparedData processData(double& runtime);
-    bool storeData(const PreparedData& data);
-
-private:
-
-    // Speicherorte oder Pufferspeicherung
-    double runtime; 
-};
 
 #endif
