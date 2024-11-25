@@ -1,7 +1,7 @@
 #include "WirelessHandler.h"
 
 void initWireless() {
-    WiFi.softAP(AP_SSID, WIFI_PASSWORD);
+    WiFi.softAP(AP_SSID, AP_PASSWORD);
     IPAddress IP = WiFi.softAPIP();
     Serial.print(AP_SSID);
     Serial.print(" IP address: ");
@@ -13,7 +13,7 @@ void sendWirelessData(const PreparedData& data) {
     // Formatierung der Daten in ein geeignete Format (z.B. JSON)
     Serial.print("Sending data: ");
     Serial.print("WindSpeed: ");
-    Serial.print(data.trueWind.magnitude());    //TODO: Implementierung der Funktion
+    Serial.print(data.windSpeed);
     Serial.print(" WindAngle: ");
     Serial.print(data.windAngle);
     Serial.print(" Temp: ");

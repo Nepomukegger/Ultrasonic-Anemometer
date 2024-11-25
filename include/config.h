@@ -2,8 +2,8 @@
 #define CONFIG_H
 
 // WiFi credentials
-#define WIFI_SSID "Ultrasonic_Anemometer_AP"
-#define WIFI_PASSWORD "!Test2345"
+#define AP_SSID "Ultrasonic_Anemometer_AP"
+#define AP_PASSWORD "!Test2345"
 
 // Bluetooth settings
 #define BLUETOOTH_NAME "Ultrasonic_Anemometer_BT"

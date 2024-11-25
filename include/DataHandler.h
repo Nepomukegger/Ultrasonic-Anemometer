@@ -20,10 +20,12 @@ private:
     MathVec windX;
     MathVec windY;
     MathVec trueWind; // TODO: Kann nicht zugegriffen werden in NMEA2000Handler.cpp & WirelessHandler.cpp, da privat
-    double temperature;
-    double humidity;
 
 public:
+    double windSpeed;
+    double windAngle;
+    double temperature;
+    double humidity;
 
     PreparedData processData();
     bool store(SDCardHandler cardInput, bool storeIt);

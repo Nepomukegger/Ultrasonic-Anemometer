@@ -2,21 +2,29 @@
 
 PreparedData PreparedData::processData() {
     // Berechnung der Windgeschwindigkeit
-    double time_x = getSensorById(1).getRuntime() - getSensorById(3).getRuntime();
-    double time_y = getSensorById(2).getRuntime() - getSensorById(4).getRuntime();
+    double time_x_forward = getSensorById(1).getRuntime() - getSensorById(3).getRuntime();
+    double time_x_backward = getSensorById(3).getRuntime() - getSensorById(1).getRuntime();
+    double time_y_forward = getSensorById(2).getRuntime() - getSensorById(4).getRuntime();  //TODO: Need to be adjusted
+    double time_y_backward = getSensorById(4).getRuntime() - getSensorById(2).getRuntime(); //TODO: Need to be adjusted
 
-    if ((sin(angle_in_radians) + cos(angle_in_radians)) != 0 && time_forwards != 0 && time_backwards != 0) {
-        velocity = (distance / (sin(angle_in_radians) + cos(angle_in_radians))) *
-                   ((1 / time_forwards) - (1 / time_backwards));
-        Serial.println("Berechnete Geschwindigkeit: " + String(velocity) + " m/s");
-        data.setWindSpeed(velocity);
+
+    if ((sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS)) != 0 && time_x_forward != 0 && time_x_backward != 0 && time_y_forward != 0 && time_y_backward != 0) {
+        this->windX = (SENSOR_DISTANCE / (sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS))) *
+                   ((1 / time_x_forward) - (1 / time_x_backward));
+        this->windY = (SENSOR_DISTANCE / (sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS))) *
+                   ((1 / time_y_forward) - (1 / time_y_backward));
+        this->trueWind.add(this->windX);
+        this->trueWind.add(this->windY);
+        this->windSpeed = this->trueWind.getMagnitude();
     }
     else {
         Serial.println("Fehler: Division durch Null oder ungültige Werte!");
     }
 
     // Berechnung des Windwinkels
-    double sensor1_time = time_forwards; // TODO: Ersetze durch Sensorlaufzeiten
+   
+   this->windAngle =  trueWind.getAngle();
+    /* double sensor1_time = time_forwards; // TODO: Ersetze durch Sensorlaufzeiten
     double sensor2_time = time_backwards; // TODO: Ersetze durch Sensorlaufzeiten
     double wind_angle = 0.0;
 
@@ -27,16 +35,16 @@ PreparedData PreparedData::processData() {
     }
     else {
         Serial.println("Fehler: Ungültige Sensordaten für Winkelberechnung!");
-    }
+    } */
+
 
     // Berechnung der Temperatur (z. B. direkt aus einem Sensorwert)
     double temperature = 0.0; // Beispielwert, TODO: Berechnung einfügen
     Serial.println("Berechnete Temperatur: " + String(temperature) + " °C");
-    data.setTemperature(temperature);
-
+    this->temperature = temperature;
     // TODO: Füge weitere Berechnungen hinzu, z. B. für Luftfeuchtigkeit oder andere Parameter
 
-    return data;
+    return *this;
 }
 
 bool PreparedData::store(SDCardHandler cardInput, bool storeIt) {

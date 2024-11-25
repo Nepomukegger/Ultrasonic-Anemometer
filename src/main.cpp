@@ -61,7 +61,7 @@ void loop() {
     // Datenverarbeitung
     data.store(cardHandler, false);
     sensorHandler.readInput(ULTRASONIC_SENSOR_READ);
-    data.processData();
+    data.processData(data);
     data.store(cardHandler, true);
 
     // Daten senden

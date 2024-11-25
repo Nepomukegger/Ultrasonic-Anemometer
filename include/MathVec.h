@@ -10,6 +10,8 @@ private:
 
 public:
     MathVec(double x, double y);
+    MathVec(double x);
+    MathVec(double y);
     MathVec();
     
     void add(const MathVec &vec);

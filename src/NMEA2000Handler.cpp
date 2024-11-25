@@ -10,7 +10,7 @@ void sendNMEA2000Data(const PreparedData& data) {
     tN2kMsg N2kMsg;
 
     // PGN 130306: Winddaten senden
-    SetN2kWindSpeed(N2kMsg, 1, data.trueWind, data.windAngle, N2kWind_True_North);      //TODO: Implementierung der Funktion
+    SetN2kWindSpeed(N2kMsg, 1, data.windSpeed, data.windAngle, N2kWind_True_North);      //TODO: Implementierung der Funktion
     if (NMEA2000.SendMsg(N2kMsg)) {
         Serial.println("Wind data sent successfully!");
     } else {

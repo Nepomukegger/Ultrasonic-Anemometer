@@ -23,12 +23,12 @@ bool SensorHandler::readInput(int pin)
 	return analogValue > 128;  // Assuming an 8-bit ADC, threshold is set at midpoint (128)
 }
 
-int SensorHandler::measureRuntime() {
+void SensorHandler::measureRuntime() {
     //todo: output pwm signal ???
     // ledcAttachPin(getPinWrite(), 0);		// Attach pin to channel 0
 	// ledcDetachPin(getPinWrite());		// Detach pin from channel 0
 	this -> setRuntime(esp_timer_get_time());
-	return this -> getId();
+	// return this -> getId();
 }
 
 //TODO: remember which sensor send the signal

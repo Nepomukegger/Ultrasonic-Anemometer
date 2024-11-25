@@ -2,6 +2,10 @@
 
 MathVec::MathVec(double x, double y) : x(x), y(y) {}
 
+MathVec::MathVec(double x) : x(x) {}
+
+MathVec::MathVec(double y) : y(y) {}
+
 MathVec::MathVec() : x(0), y(0) {}
 
 
