@@ -9,19 +9,26 @@
 #define SENSOR_H
 
 #include <Arduino.h>
+#include <string>
 
 class Sensor {
 public:
-    Sensor(int pin, int id, uint8_t mode);
-    int getPin();
+    Sensor(String name, int pinRead, int pinWrite, int id, uint8_t modeRead, uint8_t modeWrite);
+    String getName();
+    int getPinRead();
+    int getPinWrite();
     int getId();
-    uint8_t getMode();
+    uint8_t getModeRead();
+    uint8_t getModeWrite();
     void setRuntime(int64_t measuredTime);
     double getRuntime();
 private:
-    int pin;
+    String name;
+    int pinRead;
+    int pinWrite;
     int id;
-    uint8_t mode;
+    uint8_t modeRead;
+    uint8_t modeWrite;
     int64_t runtime;
 };
 
