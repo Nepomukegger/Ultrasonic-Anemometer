@@ -55,7 +55,7 @@ bool PreparedData::store(SDCardHandler cardInput, bool storeIt) {
         }
         else {
             Serial.println("Speichern der Daten aktiviert.\n Speichere Daten auf SD-Karte...");
-            cardInput.storeData(processData());
+            cardInput.storeData(*this);
             return true;
         }
 }
