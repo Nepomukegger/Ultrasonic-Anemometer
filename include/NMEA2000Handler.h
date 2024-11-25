@@ -5,7 +5,11 @@
 #include <N2kMessages.h>
 #include "DataHandler.h"
 
-void initNMEA2000();
-void sendNMEA2000Data(const PreparedData& data);
+
+class NMEA2000Handler {
+public:
+    NMEA2000Handler();
+    void sendNMEA2000Data(const DataHandler& data);
+};
 
 #endif

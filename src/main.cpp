@@ -27,10 +27,13 @@
 #include "SensorManager.h"
 #include "DataHandler.h"
 
+// Initialisierung der Handler
 SensorManager sensorManager;
 SensorHandler sensorHandler;
+WirelessHandler wirelessHandler;
+NMEA2000Handler nmea2000Handler;
 SDCardHandler cardHandler;
-PreparedData data;
+DataHandler preparedData;
 
 void initializeSensors() {
     sensorManager.addSensor(ULTRASONIC_SENSOR_1_ECHO, ULTRASONIC_SENSOR_1_TRIGGER, 1, OUTPUT, OUTPUT);
@@ -48,8 +51,6 @@ void setup() {
     Serial.begin(115200);
 
     // Initialisierungen
-    initNMEA2000();
-    initWireless();
     initializeSensors();
     initializeClock();
 
@@ -59,14 +60,14 @@ void setup() {
 void loop() {
 
     // Datenverarbeitung
-    data.store(cardHandler, false);
+    preparedData.store(cardHandler, false);
     sensorHandler.readInput(ULTRASONIC_SENSOR_READ);
-    data.processData();
-    data.store(cardHandler, true);
+    preparedData.processData();
+    preparedData.store(cardHandler, true);
 
     // Daten senden
-    sendWirelessData(data);
-    sendNMEA2000Data(data);
+    // wirelessHandler.sendWirelessData();
+    nmea2000Handler.sendNMEA2000Data(preparedData);
 
     delay(1000); // Intervall für die Messungen
 }

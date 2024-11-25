@@ -13,7 +13,7 @@
 #include "SDCardHandler.h"
 #include "MathVec.h"
 
-class PreparedData : public SensorManager{
+class DataHandler : public SensorManager{
 private:
     // TODO: Wind Richtung berechnen
     // TODO: Zeitstempel hinzufügen
@@ -22,12 +22,13 @@ private:
     MathVec trueWind; // TODO: Kann nicht zugegriffen werden in NMEA2000Handler.cpp & WirelessHandler.cpp, da privat
 
 public:
+    double timestamp;
     double windSpeed;
     double windAngle;
     double temperature;
     double humidity;
 
-    PreparedData processData();
+    DataHandler processData();
     bool store(SDCardHandler cardInput, bool storeIt);
 };
 

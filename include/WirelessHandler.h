@@ -2,9 +2,20 @@
 #define WIRELESSHANDLER_H
 
 #include <WiFi.h>
+#include <ArduinoJson.h>
 #include "DataHandler.h"
+#include "SDCardHandler.h"
 
-void initWireless();
-void sendWirelessData(const PreparedData& data);
+class WirelessHandler : public SDCardHandler {
+private:
+    File jsonFile;
+    String filename;
+    
+public:
+
+    WirelessHandler();
+
+    void sendWirelessData();
+};
 
 #endif

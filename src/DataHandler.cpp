@@ -1,6 +1,9 @@
 #include "DataHandler.h"
 
-PreparedData PreparedData::processData() {
+DataHandler DataHandler::processData() {
+    // Setze den Zeitstempel
+    this->timestamp = esp_timer_get_time();
+
     // Berechnung der Windgeschwindigkeit
     double time_x_forward = getSensorById(1).getRuntime() - getSensorById(3).getRuntime();
     double time_x_backward = getSensorById(3).getRuntime() - getSensorById(1).getRuntime();
@@ -47,7 +50,7 @@ PreparedData PreparedData::processData() {
     return *this;
 }
 
-bool PreparedData::store(SDCardHandler cardInput, bool storeIt) {
+bool DataHandler::store(SDCardHandler cardInput, bool storeIt) {
         // Speichere die Daten lokal auf der SD-Karte
         if (!storeIt) {
             Serial.println("Speichern der Daten deaktiviert.");

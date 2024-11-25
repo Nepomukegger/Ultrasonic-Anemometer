@@ -7,10 +7,15 @@
 
 class SDCardHandler {
 private:
+    File csvFile;
+    String filename;
 
 public:
+    
     SDCardHandler();
-    bool storeData(const PreparedData& data);
+
+    SDCardHandler returnCSVFile();
+    bool storeData(const DataHandler& data);
 };
 
 #endif
