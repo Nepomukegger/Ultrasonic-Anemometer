@@ -26,7 +26,7 @@ public:
     double temperature;
     double humidity;
 
-    DataHandler processData();
+    DataHandler processData();  //ist der rückgabewert richtig? nicht void?
     bool store(SDCardHandler cardInput, bool storeIt);
 };
 

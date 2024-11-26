@@ -2,16 +2,13 @@
 
 MathVec::MathVec(double x, double y) : x(x), y(y) {}
 
-MathVec::MathVec(double x) : x(x) {}
-
-MathVec::MathVec(double y) : y(y) {}
+MathVec::MathVec(double x) : x(x), y(0) {}
 
 MathVec::MathVec() : x(0), y(0) {}
 
 
-void MathVec::add(const MathVec &vec) {
-    this->x += vec.x;
-    this->y += vec.y;
+MathVec MathVec::add(const MathVec &vec) {
+    return {this->x += vec.x, this->y += vec.y};
 }
 
 double MathVec::getAngle() {

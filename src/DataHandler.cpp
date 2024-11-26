@@ -5,19 +5,16 @@ DataHandler DataHandler::processData() {
     this->timestamp = esp_timer_get_time();
 
     // Berechnung der Windgeschwindigkeit
-    double time_x_forward = getSensorById(1).getRuntime() - getSensorById(3).getRuntime();
-    double time_x_backward = getSensorById(3).getRuntime() - getSensorById(1).getRuntime();
-    double time_y_forward = getSensorById(2).getRuntime() - getSensorById(4).getRuntime();  //TODO: Need to be adjusted
-    double time_y_backward = getSensorById(4).getRuntime() - getSensorById(2).getRuntime(); //TODO: Need to be adjusted
+    //runtime von sensor 1 ist zeit vorwärts und sensor 3 ist zeit rückwärts
+    //das gleiche gilt auch für sensor 2 und 4
 
 
-    if ((sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS)) != 0 && time_x_forward != 0 && time_x_backward != 0 && time_y_forward != 0 && time_y_backward != 0) {
-        this->windX = (SENSOR_DISTANCE / (sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS))) *
-                   ((1 / time_x_forward) - (1 / time_x_backward));
-        this->windY = (SENSOR_DISTANCE / (sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS))) *
-                   ((1 / time_y_forward) - (1 / time_y_backward));
-        this->trueWind.add(this->windX);
-        this->trueWind.add(this->windY);
+    if ((sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS)) != 0 && getSensorById(1).getRuntime() != 0 && getSensorById(2).getRuntime() != 0 && getSensorById(3).getRuntime() != 0 && getSensorById(4).getRuntime() != 0) {
+        this->windX = {SENSOR_DISTANCE / (sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS)) *
+                   (1 / getSensorById(1).getRuntime() - 1 / getSensorById(3).getRuntime()) ,0};
+        this->windY = {0, SENSOR_DISTANCE / (sin(SENSOR_MOUNT_ANGLE_IN_RADIANS) + cos(SENSOR_MOUNT_ANGLE_IN_RADIANS)) *
+                   (1 / getSensorById(2).getRuntime() - 1 / getSensorById(4).getRuntime())};
+        this->trueWind = this->windX.add(this->windY);
         this->windVelocity = this->trueWind.getMagnitude();
         logError("Berechnete Windgeschwindigkeit: " + String(this->trueWind.getMagnitude()) + " m/s");
     }

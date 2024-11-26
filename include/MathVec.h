@@ -10,11 +10,10 @@ private:
 
 public:
     MathVec(double x, double y);
-    MathVec(double x);
-    MathVec(double y);
+    explicit MathVec(double x); // double x oder double y als argument ist das gleiche
     MathVec();
     
-    void add(const MathVec &vec);
+    MathVec add(const MathVec &vec);
     double getAngle();
     double getMagnitude();
     double getX();
