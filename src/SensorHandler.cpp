@@ -12,15 +12,9 @@ void SensorHandler::enableClock(int pin, int frequency, uint8_t mode)	// Enable 
     // ledcAttachPin(pin, 0);       // Attach pin to channel 0
 }
 
-void SensorHandler::enableRead(int pin, uint8_t mode)
+void SensorHandler::enableRead(int pin)
 {
-	pinMode(pin, mode);
-}
-
-bool SensorHandler::readInput(int pin)
-{
-	int analogValue = analogRead(pin);
-	return analogValue > 128;  // Assuming an 8-bit ADC, threshold is set at midpoint (128)
+	digitalWrite(pin, HIGH);
 }
 
 void SensorHandler::measureRuntime() {

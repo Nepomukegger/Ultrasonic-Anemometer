@@ -10,7 +10,6 @@ private:
 public:
     void enableClock(int pin, int frequency, uint8_t mode);
     void enableRead(int pin, uint8_t mode);
-    bool readInput(int pin);
     void measureRuntime();
     void measureRuntimeIsr();
 };
