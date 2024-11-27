@@ -3,7 +3,6 @@
 #define PIN_H
 
 #include <Arduino.h>
-#include "config.h"
 
 class Pin {
 private:
