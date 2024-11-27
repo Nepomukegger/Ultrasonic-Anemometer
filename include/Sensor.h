@@ -10,26 +10,24 @@
 
 #include <Arduino.h>
 #include <string>
+#include <vector>
+
+#include "Pin.h"
 
 class Sensor {
-private:
     String name;
-    int pinRead;
-    int pinWrite;
+    Pin pinRead;
+    Pin pinWrite;
     int id;
-    uint8_t modeRead;
-    uint8_t modeWrite;
     int64_t runtime;
 
 public:
-    Sensor(String name, int pinRead, int pinWrite, int id, uint8_t modeRead, uint8_t modeWrite);
+    Sensor(String name, int id, Pin pinRead, Pin pinWrite);
 
     String getName();
-    int getPinRead();
-    int getPinWrite();
+    const Pin & getPinRead();
+    const Pin & getPinWrite();
     int getId();
-    uint8_t getModeRead();
-    uint8_t getModeWrite();
     void setRuntime(int64_t measuredTime);
     double getRuntime();
 

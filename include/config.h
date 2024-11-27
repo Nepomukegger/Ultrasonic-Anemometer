@@ -41,6 +41,11 @@
 #define SENSOR_MOUNT_ANGLE 45
 #define SENSOR_MOUNT_ANGLE_IN_RADIANS (SENSOR_MOUNT_ANGLE * M_PI / 180.0)
 #define SENSOR_DISTANCE 0.1  // Distance between the sensors must be specified in meters
+#include <map>
+
+typedef std::map<std::string, int> Function {
+    ""
+};
 
 // GPS settings
 #define GPS_BAUD_RATE 9600
