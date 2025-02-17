@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-const int ledPin = 1;           // LED Pin
+const int ledPin = 18;           // LED Pin
 const int dutyCycle = 128;       // PWM Duty Cycle (0-255)
 const int freq = 305000;         // PWM Frequenz
 const int resolution = 4;        // PWM Auflösung (z. B. 4 Bits, 0-15)
