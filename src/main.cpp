@@ -10,7 +10,7 @@ void setup() {
   pinMode(19, OUTPUT);
   Serial.print("core: ");
   Serial.print(xPortGetCoreID());
-  Serial.print("Time");
+  Serial.print(" Time");
   Serial.println(esp_timer_get_time());
   xTaskCreatePinnedToCore(
                     task,   /* Task function. */
