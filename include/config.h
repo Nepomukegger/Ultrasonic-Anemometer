@@ -27,7 +27,7 @@
 // Every sensor has a trigger and READ pin to select which sensor to read from and send the CLK signal to
 #define S1 21
 #define S0 19
-std::unordered_map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> Select_pins = {
+std::unordered_map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> SelectPins = {
     {"Measurement_1", {{S1, 0}, {S0, 0}}},
     {"Measurement_2", {{S1, 0}, {S0, 1}}},
     {"Measurement_3", {{S1, 1}, {S0, 0}}},
