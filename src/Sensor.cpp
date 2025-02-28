@@ -12,7 +12,7 @@ void Sensor::measure() {
         delayMicroseconds(10);
         pwm_time_sent = esp_timer_get_time();
         analogWrite(SIGNAL_OUT, 128);
-        while (analogRead(SIGNAL_IN) < 500) {
+        while (analogRead(SIGNAL_IN) < 240) {
             //wait for signal to be received
         }
         pwm_time_received = esp_timer_get_time();
