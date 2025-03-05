@@ -3,6 +3,26 @@
 
 #include <unordered_map>
 #include <string>
+#include <map>
+
+//global variables
+extern std::map<std::string, int> runtime = {
+    {"1-3", 0},
+    {"2-4", 1},
+    {"3-1", 2},
+    {"4-2", 3}
+};
+extern std::map<std::string, long double> results = {
+    {"windSpeedX", 0},
+    {"windSpeedY", 0},
+    {"trueWindSpeed", 0},
+    {"windDirection", 0},
+    {"speedOfSoundX", 0},
+    {"speedOfSoundY", 0},
+    {"speedOfSoundAvg", 0},
+    {"Temperature", 0}
+
+};
 
 // WiFi credentials
 #define AP_SSID "Ultrasonic_Anemometer_AP"
@@ -34,7 +54,7 @@ std::unordered_map<std::string, std::pair<std::pair<int, int>, std::pair<int, in
     {"Measurement_4", {{S1, 1}, {S0, 1}}}
 };
 
-#define ENANLE 18
+#define ENABLE 18
 
 #define SIGNAL_OUT 2
 #define SIGNAL_IN 15

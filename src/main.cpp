@@ -1,18 +1,11 @@
 #include <Arduino.h>
 #include <map>
+#include "config.h"
+#include "Sensor.h"
+#include "Calculate.cpp"
 
 
-std::map<std::string, int> runtimes = {
-    {"1-3", 0},
-    {"2-4", 1},
-    {"3-1", 2},
-    {"4-2", 3}
-};
-std::map<std::string, int> results = {
-    {"windSpeed", 0},
-    {"windDirection", 1},
-    {"Temperature", 2}
-};
+Sensor ultrasonicSensor;
 
 
 void setup() {
@@ -22,4 +15,8 @@ void setup() {
 
 void loop() {
 // write your code here
+    ultrasonicSensor.measure();
+    Calculate::windSpeed();
+    Calculate::windDirection();
+    Calculate::Temperature();
 }
