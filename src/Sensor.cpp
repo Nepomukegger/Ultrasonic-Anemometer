@@ -1,14 +1,12 @@
-//
-// Created by nepom on 28.02.2025.
-//
-
 #include "Sensor.h"
+#include "config.h"
+#include "GlobalVariables.h"
 
-void Sensor::measure() {
+void Sensor::measureRuntime() {
     int64_t pwm_time_sent;
     int64_t pwm_time_received;
     for (auto & e : SelectPins) {
-        SelectSensor(e.second);
+        Sensor::SelectSensor(e.second);
         delayMicroseconds(10);
         pwm_time_sent = esp_timer_get_time();
         analogWrite(SIGNAL_OUT, 128);
@@ -20,6 +18,7 @@ void Sensor::measure() {
             //wait for burst to end
         }
         analogWrite(SIGNAL_OUT, 0);
+        runtime[e.first] = pwm_time_received - pwm_time_sent;
     }
 }
 

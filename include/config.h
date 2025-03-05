@@ -5,24 +5,6 @@
 #include <string>
 #include <map>
 
-//global variables
-extern std::map<std::string, int> runtime = {
-    {"1-3", 0},
-    {"2-4", 1},
-    {"3-1", 2},
-    {"4-2", 3}
-};
-extern std::map<std::string, long double> results = {
-    {"windSpeedX", 0},
-    {"windSpeedY", 0},
-    {"trueWindSpeed", 0},
-    {"windDirection", 0},
-    {"speedOfSoundX", 0},
-    {"speedOfSoundY", 0},
-    {"speedOfSoundAvg", 0},
-    {"Temperature", 0}
-
-};
 
 // WiFi credentials
 #define AP_SSID "Ultrasonic_Anemometer_AP"
@@ -48,10 +30,10 @@ extern std::map<std::string, long double> results = {
 #define S1 21
 #define S0 19
 std::unordered_map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> SelectPins = {
-    {"Measurement_1", {{S1, 0}, {S0, 0}}},
-    {"Measurement_2", {{S1, 0}, {S0, 1}}},
-    {"Measurement_3", {{S1, 1}, {S0, 0}}},
-    {"Measurement_4", {{S1, 1}, {S0, 1}}}
+    {"1-3", {{S1, 0}, {S0, 0}}},
+    {"2-4", {{S1, 0}, {S0, 1}}},
+    {"3-1", {{S1, 1}, {S0, 0}}},
+    {"4-2", {{S1, 1}, {S0, 1}}}
 };
 
 #define ENABLE 18
@@ -64,6 +46,7 @@ std::unordered_map<std::string, std::pair<std::pair<int, int>, std::pair<int, in
 #define SENSOR_MOUNT_ANGLE 45
 #define SENSOR_MOUNT_ANGLE_IN_RADIANS (SENSOR_MOUNT_ANGLE * M_PI / 180.0)
 #define SENSOR_DISTANCE 0.1  // Distance between the sensors must be specified in meters
+#define DISTANCE_TO_REFLECTOR 0.05
 
 // GPS settings
 #define GPS_BAUD_RATE 9600

@@ -1,7 +1,3 @@
-//
-// Created by nepom on 28.02.2025.
-//
-
 #ifndef SENSOR_H
 #define SENSOR_H
 
@@ -9,10 +5,8 @@
 #include "config.h"
 
 
-class Sensor {
-public:
-	void measure();
-private:
+namespace Sensor {
+	void measureRuntime();
 	void SelectSensor(const std::pair<std::pair<int, int>, std::pair<int, int>> & pins);
 };
 
