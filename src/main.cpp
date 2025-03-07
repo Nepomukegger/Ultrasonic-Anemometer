@@ -5,11 +5,10 @@
 void setup() {
   // Set pin mode
   pinMode(LED,OUTPUT);
+  analogWriteFrequency(305000);
 }
 
 void loop() {
-  delay(500);
-  digitalWrite(LED,HIGH);
-  delay(500);
-  digitalWrite(LED,LOW);
+analogWrite(LED, 128);
+delay(100000);
 }
