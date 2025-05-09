@@ -13,6 +13,7 @@ void setup() {
     pinMode(ENABLE, OUTPUT);
     pinMode(SIGNAL_OUT, OUTPUT);
     pinMode(SIGNAL_IN, INPUT);
+    analogWriteFrequency(CLOCK_FREQUENCY);
 }
 
 void loop() {

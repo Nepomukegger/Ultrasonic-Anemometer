@@ -26,14 +26,15 @@
 #define CLOCK_FREQUENCY 305000
 
 // Sensor pins
-// Every sensor has a trigger and READ pin to select which sensor to read from and send the CLK signal to
+//the sensor is selected by a multiplexer S1 and S0 are the select pins of the multiplexer to select the sensor
 #define S1 21
 #define S0 19
+
 std::unordered_map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> SelectPins = {
-    {"1-3", {{S1, 0}, {S0, 0}}},
-    {"2-4", {{S1, 0}, {S0, 1}}},
-    {"3-1", {{S1, 1}, {S0, 0}}},
-    {"4-2", {{S1, 1}, {S0, 1}}}
+    {"1-3", {{S1, LOW}, {S0, LOW}}},
+    {"2-4", {{S1, LOW}, {S0, HIGH}}},
+    {"3-1", {{S1, HIGH}, {S0, LOW}}},
+    {"4-2", {{S1, HIGH}, {S0, HIGH}}}
 };
 
 #define ENABLE 18
