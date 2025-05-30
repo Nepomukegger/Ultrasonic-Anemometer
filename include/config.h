@@ -32,7 +32,7 @@
 
 #define ENABLE 18
 
-#define SIGNAL_OUT 2
+#define SIGNAL_OUT 4
 #define SIGNAL_IN 15
 
 
