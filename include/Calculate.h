@@ -1,10 +1,12 @@
-#ifndef CALCULATE_H
-#define CALCULATE_H
+#pragma once
 
-namespace Calculate {
-    void windSpeed();
-    void windDirection();
-    void Temperature();
-}
+#include <cmath>
+#include "config.h"
+#include "GlobalVariables.h"
 
-#endif //CALCULATE_H
+class Calculate {
+public:
+    static void windSpeed();
+    static void windDirection();
+    static void Temperature();
+};

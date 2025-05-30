@@ -1,6 +1,3 @@
-#include <cmath>
-#include "config.h"
-#include "GlobalVariables.h"
 #include "Calculate.h"
 
 
@@ -11,7 +8,7 @@ void Calculate::windSpeed() {
 
 
     results["windSpeedX"] = SENSOR_DISTANCE/(sin(SENSOR_MOUNT_ANGLE_IN_RADIANS)*cos(SENSOR_MOUNT_ANGLE_IN_RADIANS))*(1.0/runtime["3-1"]-1.0/runtime["1-3"]);
-    results["windSpedY"] = SENSOR_DISTANCE/(sin(SENSOR_MOUNT_ANGLE_IN_RADIANS)*cos(SENSOR_MOUNT_ANGLE_IN_RADIANS))*(1.0/runtime["4-2"]-1.0/runtime["2-4"]);
+    results["windSpeedY"] = SENSOR_DISTANCE/(sin(SENSOR_MOUNT_ANGLE_IN_RADIANS)*cos(SENSOR_MOUNT_ANGLE_IN_RADIANS))*(1.0/runtime["4-2"]-1.0/runtime["2-4"]);
 
     results["trueWindSpeed"] = sqrt(pow(results["windSpeedX"], 2) + pow(results["windSpeedY"], 2));
 }

@@ -3,8 +3,8 @@
 
 #include <unordered_map>
 #include <string>
-#include <map>
 
+#include "Arduino.h"
 
 // WiFi credentials
 #define AP_SSID "Ultrasonic_Anemometer_AP"
@@ -29,13 +29,6 @@
 //the sensor is selected by a multiplexer S1 and S0 are the select pins of the multiplexer to select the sensor
 #define S1 21
 #define S0 19
-
-std::unordered_map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> SelectPins = {
-    {"1-3", {{S1, LOW}, {S0, LOW}}},
-    {"2-4", {{S1, LOW}, {S0, HIGH}}},
-    {"3-1", {{S1, HIGH}, {S0, LOW}}},
-    {"4-2", {{S1, HIGH}, {S0, HIGH}}}
-};
 
 #define ENABLE 18
 

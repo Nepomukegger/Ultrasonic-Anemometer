@@ -2,7 +2,7 @@
 #include <map>
 #include "config.h"
 #include "Sensor.h"
-#include "Calculate.cpp"
+#include "Calculate.h"
 
 
 void setup() {
