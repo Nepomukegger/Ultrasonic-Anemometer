@@ -27,13 +27,13 @@
 
 // Sensor pins
 //the sensor is selected by a multiplexer S1 and S0 are the select pins of the multiplexer to select the sensor
-#define S1 21
-#define S0 19
+#define S1 4
+#define S0 16
 
-#define ENABLE 18
+#define ENABLE 17
 
-#define SIGNAL_OUT 4
-#define SIGNAL_IN 15
+#define SIGNAL_OUT 21
+#define SIGNAL_IN 22
 
 
 //Sensor

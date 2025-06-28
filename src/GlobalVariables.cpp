@@ -1,6 +1,5 @@
 #include "GlobalVariables.h"
 
-//global variables
 std::map<std::string, int64_t> runtime = {
     {"1-3", 0},
     {"2-4", 1},
